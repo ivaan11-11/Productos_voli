@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VolleyZone</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #87cefa, #f5deb3);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #ff7f50;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1em;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    .page {
+      display: none;
+      padding: 2em;
+    }
+    .active {
+      display: block;
+    }
+    .portada {
+      text-align: center;
+      padding: 5em 2em;
+      background-color: rgba(255, 255, 255, 0.4);
+      border-radius: 20px;
+      margin: 2em auto;
+      max-width: 600px;
+    }
+    .seccion-productos {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .columna {
+      width: 300px;
+    }
+    .columna h3 {
+      text-align: center;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 0.5em;
+    }
+    .producto {
+      border: 2px solid white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      margin: 1em 0;
+      background-color: #fff8dc;
+      text-align: center;
+    }
+    .producto img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .producto-info {
+      padding: 0.5em;
+    }
+    .producto button {
+      margin: 0.5em 0;
+      padding: 0.5em 1em;
+      background-color: #ff7f50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #carrito-lista {
+      list-style: none;
+      padding: 0;
+    }
+    #carrito-lista li {
+      padding: 0.5em;
+      background-color: #fff;
+      margin: 0.5em 0;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 1em;
+      background-color: rgba(255, 255, 255, 0.3);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="mostrarPagina('portada')">Inicio</a></li>
+        <li><a href="#" onclick="mostrarPagina('tienda')">Tienda</a></li>
+        <li><a href="#" onclick="mostrarPagina('carrito')">Carrito</a></li>
+        <li><a href="#" onclick="mostrarPagina('contacto')">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div id="portada" class="page active">
+      <div class="portada">
+        <h1>Bienvenido a VolleyZone</h1>
+        <p>Tu tienda online especializada en artículos de voleibol</p>
+      </div>
+      <footer>
+        Diseñado con pasión por Iván Olmedo
+      </footer>
+    </div>
+
+    <div id="tienda" class="page">
+      <h2 style="text-align: center;">Nuestros productos</h2>
+      <div class="seccion-productos">
+        <!-- Columna Ropa -->
+        <div class="columna">
+          <h3>Ropa deportiva</h3>
+          <div class="producto">
+            <img src="camiseta.jpg" alt="Camiseta deportiva">
+            <div class="producto-info">
+              <strong>Camiseta Dry-Fit</strong><br>
+              $250.00 MXN<br>
+              <button onclick="agregarAlCarrito('Camiseta Dry-Fit', 250)">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="producto">
+            <img src="shorts.jpg" alt="Shorts deportivos">
+            <div class="producto-info">
+              <strong>Shorts Pro Voley</strong><br>
+              $180.00 MXN<br>
+              <button onclick="agregarAlCarrito('Shorts Pro Voley', 180)">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="producto">
+            <img src="rodilleras.jpg" alt="Rodilleras">
+            <div class="producto-info">
+              <strong>Rodilleras Protect Plus</strong><br>
+              $220.00 MXN<br>
+              <button onclick="agregarAlCarrito('Rodilleras Protect Plus', 220)">Agregar al carrito</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Accesorios -->
+        <div class="columna">
+          <h3>Accesorios</h3>
+          <div class="producto">
+            <img src="balon.jpg" alt="Balón de voleibol">
+            <div class="producto-info">
+              <strong>Balón Oficial Mikasa</strong><br>
+              $720.00 MXN<br>
+              <button onclick="agregarAlCarrito('Balón Oficial Mikasa', 720)">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="producto">
+            <img src="red.jpg" alt="Red de voleibol">
+            <div class="producto-info">
+              <strong>Red Profesional</strong><br>
+              $850.00 MXN<br>
+              <button onclick="agregarAlCarrito('Red Profesional', 850)">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="producto">
+            <img src="tobilleras.jpg" alt="Tobilleras deportivas">
+            <div class="producto-info">
+              <strong>Tobilleras de compresión</strong><br>
+              $150.00 MXN<br>
+              <button onclick="agregarAlCarrito('Tobilleras de compresión', 150)">Agregar al carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Página Carrito -->
+    <div id="carrito" class="page">
+      <h1>Carrito de compras</h1>
+      <ul id="carrito-lista"></ul>
+      <p id="total">Total: $0.00 MXN</p>
+      <button onclick="comprar()">Comprar ahora</button>
+    </div>
+
+    <!-- Página de compra simulada -->
+    <div id="compra" class="page">
+      <h1>Gracias por tu compra</h1>
+      <p>Recibirás un correo con los detalles de tu pedido.</p>
+    </div>
+
+    <!-- Página Contacto -->
+    <div id="contacto" class="page">
+      <h1>Contáctanos</h1>
+      <p>Síguenos en Instagram:</p>
+      <p><a href="https://www.instagram.com/tapatiosvoleibolmx?igsh=MXB0dTJkaTRrdnFkMw==" target="_blank">@volleyzone_mx</a></p>
+      <p>O mándanos un correo: <a href="mailto:ivanolmedoperez21@gmail.com">ventas@volleyzone.com</a></p>
+    </div>
+  </main>
+
+  <script>
+    const carrito = [];
+
+    function mostrarPagina(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function agregarAlCarrito(nombre, precio) {
+      carrito.push({ nombre, precio });
+      actualizarCarrito();
+      alert(`${nombre} ha sido agregado al carrito.`);
+    }
+
+    function actualizarCarrito() {
+      const lista = document.getElementById("carrito-lista");
+      lista.innerHTML = "";
+      let total = 0;
+      carrito.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.nombre} - $${item.precio.toFixed(2)} MXN`;
+        lista.appendChild(li);
+        total += item.precio;
+      });
+      document.getElementById("total").textContent = `Total: $${total.toFixed(2)} MXN`;
+    }
+
+    function comprar() {
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+      }
+      mostrarPagina('compra');
+    }
+  </script>
+</body>
+</html>
